@@ -90,13 +90,14 @@ export default function ConnectCardBottomSheet({
 
       {/* Bottom sheet that slides up from bottom */}
       <div
-        className={`fixed bottom-0 left-0 right-0 bg-white transition-all duration-500 ease-out ${
+        className={`fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl ${
           isMinimized ? 'h-24' : 'h-[70vh]'
-        } rounded-t-3xl shadow-2xl`}
+        }`}
         style={{
           transform: isVisible
             ? 'translateY(0)'
-            : 'translateY(100%)'
+            : 'translateY(100%)',
+          transition: 'transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94), height 300ms ease-out'
         }}
       >
         {/* Handle Bar */}
