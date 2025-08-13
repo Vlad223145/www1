@@ -21,7 +21,10 @@ import {
   Smartphone,
   CreditCard,
   Package,
+  HelpCircle,
+  MessageSquare,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import ScratchCard from "@/components/ScratchCard";
 import ScrollRoad from "@/components/ScrollRoad";
