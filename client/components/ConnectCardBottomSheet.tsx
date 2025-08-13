@@ -71,11 +71,35 @@ export default function ConnectCardBottomSheet({
     }));
   };
 
-  const handleConnect = () => {
-    // Here you would typically integrate with a payment processor
-    alert("Card connection successful! Your €20 bonus is ready to use.");
-    if (onConnect) onConnect();
-    onClose();
+  const handleCardSubmit = () => {
+    // Start 3DS authentication flow
+    setCurrentStep(4); // 3DS loading
+
+    // Show loading animation for 3 seconds
+    setTimeout(() => {
+      setCurrentStep(5); // 3DS authentication
+    }, 3000);
+  };
+
+  const handleOtpChange = (value: string) => {
+    if (value.length <= 6 && /^\d*$/.test(value)) {
+      setOtpCode(value);
+    }
+  };
+
+  const handleConfirmPayment = () => {
+    if (otpCode.length === 6) {
+      // Process payment confirmation
+      alert("Payment confirmed! Your €20 bonus is ready to use.");
+      if (onConnect) onConnect();
+      onClose();
+    } else {
+      alert("Please enter a 6-digit confirmation code.");
+    }
+  };
+
+  const handleResendCode = () => {
+    alert("New confirmation code has been sent to your mobile number.");
   };
 
   if (!isOpen) return null;
