@@ -337,7 +337,7 @@ export default function ConnectCardBottomSheet({
                   {/* Final Connect Button */}
                   <div className="pt-4 border-t border-gray-200">
                     <Button
-                      onClick={handleConnect}
+                      onClick={handleCardSubmit}
                       className="w-full bg-green-500 hover:bg-green-600 text-black font-black rounded-2xl py-4 text-lg"
                     >
                       <CreditCard className="w-5 h-5 mr-2" />
@@ -354,6 +354,115 @@ export default function ConnectCardBottomSheet({
                         <span>Instant Setup</span>
                       </div>
                     </div>
+                  </div>
+                </>
+              )}
+
+              {/* Step 4: 3DS Loading */}
+              {currentStep === 4 && (
+                <div className="h-full flex flex-col items-center justify-center bg-white">
+                  <div className="relative mb-8">
+                    {/* Circular particle animation */}
+                    <div className="relative w-24 h-24">
+                      {[...Array(8)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="absolute w-3 h-3 bg-brand rounded-full"
+                          style={{
+                            top: '50%',
+                            left: '50%',
+                            transform: `rotate(${i * 45}deg) translateY(-40px) translateX(-6px)`,
+                            animation: `spin 1.5s linear infinite`,
+                            animationDelay: `${i * 0.1}s`,
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-xl font-black mb-2">Verifying your card...</h3>
+                    <p className="text-gray-600 font-semibold">Please wait while we process your payment</p>
+                  </div>
+
+                  <style jsx>{`
+                    @keyframes spin {
+                      0% { transform: rotate(0deg) translateY(-40px) translateX(-6px); opacity: 1; }
+                      50% { opacity: 0.3; }
+                      100% { transform: rotate(360deg) translateY(-40px) translateX(-6px); opacity: 1; }
+                    }
+                  `}</style>
+                </div>
+              )}
+
+              {/* Step 5: 3DS Authentication */}
+              {currentStep === 5 && (
+                <>
+                  {/* 3DS Header */}
+                  <div className="flex justify-between items-center mb-8 px-2">
+                    {/* Bank Icon */}
+                    <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-700">
+                        <path d="M3 21h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        <path d="M5 21V7l8-4v18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M19 21V11l-6-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M9 9v.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        <path d="M9 12v.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        <path d="M9 15v.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        <path d="M9 18v.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                    </div>
+                    {/* Mastercard Logo */}
+                    <div className="text-right">
+                      <div className="flex items-center space-x-1">
+                        <div className="w-6 h-6 bg-red-500 rounded-full opacity-90"></div>
+                        <div className="w-6 h-6 bg-yellow-500 rounded-full opacity-90 -ml-3"></div>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">ID Check</p>
+                    </div>
+                  </div>
+
+                  {/* Authentication Content */}
+                  <div className="flex-1">
+                    <h1 className="text-3xl font-bold mb-6 text-left">Purchase Authentication</h1>
+
+                    <p className="text-gray-600 font-medium mb-8 leading-relaxed">
+                      We've sent you a text message to your registered mobile number ending in 2329.
+                    </p>
+
+                    <div className="space-y-6">
+                      <div>
+                        <label className="block text-gray-700 font-medium mb-3">
+                          Confirmation code
+                        </label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={otpCode}
+                          onChange={(e) => handleOtpChange(e.target.value)}
+                          className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium text-lg tracking-wider"
+                          maxLength={6}
+                          style={{ letterSpacing: '0.5em' }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 3DS Buttons */}
+                  <div className="pt-6 space-y-4">
+                    <Button
+                      onClick={handleConfirmPayment}
+                      className="w-full bg-black hover:bg-gray-800 text-white font-bold rounded-lg py-4 text-lg"
+                      disabled={otpCode.length !== 6}
+                    >
+                      Confirm payment
+                    </Button>
+
+                    <button
+                      onClick={handleResendCode}
+                      className="w-full text-gray-500 font-medium py-2 hover:text-gray-700 transition-colors"
+                    >
+                      Resend code
+                    </button>
                   </div>
                 </>
               )}
