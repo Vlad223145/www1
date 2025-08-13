@@ -27,12 +27,12 @@ export default function Contact() {
     let isValid = true;
 
     if (!formData.email || !validateEmail(formData.email)) {
-      newErrors.email = "Пожалуйста, введите корректный email адрес";
+      newErrors.email = "Please enter a valid email address";
       isValid = false;
     }
 
     if (!formData.message || formData.message.trim().length < 10) {
-      newErrors.message = "Сообщение должно содержать минимум 10 символов";
+      newErrors.message = "Message must contain at least 10 characters";
       isValid = false;
     }
 
@@ -99,7 +99,7 @@ export default function Contact() {
                 to="/"
                 className="text-gray-600 hover:text-black transition-colors font-semibold"
               >
-                Главная
+                Home
               </Link>
               <Link
                 to="/faq"
@@ -111,16 +111,16 @@ export default function Contact() {
                 to="/trust"
                 className="text-gray-600 hover:text-black transition-colors font-semibold"
               >
-                Доверие
+                Trust
               </Link>
               <Link
                 to="/about"
                 className="text-gray-600 hover:text-black transition-colors font-semibold"
               >
-                О нас
+                About
               </Link>
               <Link to="/contact" className="text-black font-black">
-                Контакты
+                Contact
               </Link>
             </div>
             <Button
@@ -130,7 +130,7 @@ export default function Contact() {
               className="rounded-xl border-gray-300 hover:bg-gray-50"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Назад
+              Back
             </Button>
           </div>
         </div>
@@ -141,16 +141,16 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection animation="fade-up">
             <h1 className="font-display text-4xl md:text-6xl font-black mb-6 leading-tight">
-              Свяжитесь
+              Get in Touch
               <br />
-              <span className="text-brand">с нами</span>
+              <span className="text-brand">with Us</span>
             </h1>
           </AnimatedSection>
 
           <AnimatedSection animation="fade-up" delay={200}>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto font-semibold">
-              Есть вопросы о скидках на доставку? Мы всегда готовы помочь и 
-              ответить на любые ваши вопросы в течение 24 часов
+              Have questions about delivery discounts? We're always ready to help and 
+              answer any questions within 24 hours
             </p>
           </AnimatedSection>
         </div>
@@ -163,7 +163,7 @@ export default function Contact() {
             {/* Contact Form */}
             <AnimatedSection animation="slide-right">
               <div className="bg-white rounded-3xl p-8 shadow-apple border border-gray-100">
-                <h2 className="text-2xl font-black mb-6">Напишите нам</h2>
+                <h2 className="text-2xl font-black mb-6">Send us a Message</h2>
 
                 {isSubmitted ? (
                   <div className="text-center py-12">
@@ -171,18 +171,18 @@ export default function Contact() {
                       <Check className="w-10 h-10 text-green-600" />
                     </div>
                     <h3 className="text-xl font-black mb-3">
-                      Сообщение отправлено!
+                      Message Sent Successfully!
                     </h3>
                     <p className="text-gray-600 font-semibold mb-6">
-                      Спасибо за ваше сообщение! Мы обязательно свяжемся с вами 
-                      в течение 24 часов.
+                      Thank you for your message! We'll get back to you 
+                      within 24 hours.
                     </p>
                     <Button
                       onClick={() => setIsSubmitted(false)}
                       variant="outline"
                       className="rounded-2xl font-bold"
                     >
-                      Написать еще одно сообщение
+                      Send Another Message
                     </Button>
                   </div>
                 ) : (
@@ -192,7 +192,7 @@ export default function Contact() {
                         htmlFor="name"
                         className="block text-sm font-black mb-2"
                       >
-                        Имя
+                        Name
                       </label>
                       <input
                         type="text"
@@ -201,7 +201,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all duration-200 font-semibold"
-                        placeholder="Ваше имя"
+                        placeholder="Your name"
                       />
                     </div>
 
@@ -238,7 +238,7 @@ export default function Contact() {
                         htmlFor="message"
                         className="block text-sm font-black mb-2"
                       >
-                        Сообщен��е *
+                        Message *
                       </label>
                       <textarea
                         id="message"
@@ -252,7 +252,7 @@ export default function Contact() {
                             ? "border-red-300 focus:ring-red-200 focus:border-red-400" 
                             : "border-gray-200 focus:ring-brand/20 focus:border-brand"
                         }`}
-                        placeholder="Расскажите подробнее о вашем вопросе..."
+                        placeholder="Tell us more about your question..."
                       />
                       {errors.message && (
                         <p className="text-red-500 text-sm mt-2 font-semibold">
@@ -260,7 +260,7 @@ export default function Contact() {
                         </p>
                       )}
                       <p className="text-gray-500 text-xs mt-2 font-medium">
-                        Минимум 10 символов
+                        Minimum 10 characters
                       </p>
                     </div>
 
@@ -272,12 +272,12 @@ export default function Contact() {
                       {isSubmitting ? (
                         <div className="flex items-center justify-center">
                           <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black mr-3"></div>
-                          Отправляется...
+                          Sending...
                         </div>
                       ) : (
                         <div className="flex items-center justify-center">
                           <Send className="w-5 h-5 mr-2" />
-                          Отправить сообщение
+                          Send Message
                         </div>
                       )}
                     </Button>
@@ -291,7 +291,7 @@ export default function Contact() {
               <div className="space-y-8">
                 <div>
                   <h2 className="text-2xl font-black mb-6">
-                    Информация для связи
+                    Contact Information
                   </h2>
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4">
@@ -304,7 +304,7 @@ export default function Contact() {
                           support@deliverydiscount.com
                         </p>
                         <p className="text-sm text-gray-500 font-medium">
-                          Ответим в течение 24 часов
+                          We'll respond within 24 hours
                         </p>
                       </div>
                     </div>
@@ -319,7 +319,7 @@ export default function Contact() {
                           @deliverydiscount_support
                         </p>
                         <p className="text-sm text-gray-500 font-medium">
-                          Быстрая поддержка в мессенджере
+                          Fast support in messenger
                         </p>
                       </div>
                     </div>
@@ -329,12 +329,12 @@ export default function Contact() {
                         <Clock className="w-7 h-7 text-brand" />
                       </div>
                       <div>
-                        <h3 className="font-black mb-1">Время работы</h3>
+                        <h3 className="font-black mb-1">Working Hours</h3>
                         <p className="text-gray-600 font-semibold">
-                          24/7 онлайн-поддержка
+                          24/7 Online Support
                         </p>
                         <p className="text-sm text-gray-500 font-medium">
-                          Круглосуточная помощь по всем вопросам
+                          Round-the-clock assistance
                         </p>
                       </div>
                     </div>
@@ -343,7 +343,7 @@ export default function Contact() {
 
                 {/* Office Info */}
                 <div className="bg-white rounded-3xl p-8 shadow-apple border border-gray-100">
-                  <h3 className="text-xl font-black mb-4">Наша команда</h3>
+                  <h3 className="text-xl font-black mb-4">Our Team</h3>
                   <div className="w-full h-48 bg-gradient-to-br from-brand/20 to-brand/5 rounded-2xl flex items-center justify-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,180,0,0.3),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(255,180,0,0.2),transparent_50%)] animate-pulse"></div>
                     <div className="text-center relative z-10">
@@ -356,10 +356,10 @@ export default function Contact() {
                         </div>
                       </div>
                       <p className="text-sm text-gray-600 font-bold">
-                        Команда DeliveryDiscount
+                        DeliveryDiscount Team
                       </p>
                       <p className="text-xs text-gray-500 font-medium">
-                        Работаем для ваших скидок
+                        Working for your discounts
                       </p>
                     </div>
                   </div>
@@ -375,30 +375,30 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection>
             <h2 className="text-3xl font-black text-center mb-12">
-              Быстрые ответы
+              Quick Answers
             </h2>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                question: "Как получить скидку €20?",
-                answer: "Скопируйте промокод и вставьте при заказе в приложении",
+                question: "How to get €20 discount?",
+                answer: "Copy the promo code and paste it when ordering in the app",
                 link: "/faq",
               },
               {
-                question: "На какие сервисы действует?",
-                answer: "Wolt, Uber Eats, Glovo, DoorDash и другие",
+                question: "Which services does it work with?",
+                answer: "Wolt, Uber Eats, Glovo, DoorDash and others",
                 link: "/faq",
               },
               {
-                question: "Безопасно ли это?",
-                answer: "Да, мы используем SSL шифрование и не сохраняем личные данные",
+                question: "Is it safe?",
+                answer: "Yes, we use SSL encryption and don't store personal data",
                 link: "/trust",
               },
               {
-                question: "В каких странах работает?",
-                answer: "27 стран Европы, США и Кан��да",
+                question: "Which countries does it work in?",
+                answer: "27 European countries, USA and Canada",
                 link: "/#geography",
               },
             ].map((item, index) => (
@@ -427,17 +427,17 @@ export default function Contact() {
           <AnimatedSection animation="scale-up">
             <div className="bg-white rounded-3xl p-8 shadow-apple border border-gray-100">
               <h3 className="text-2xl font-black mb-4">
-                Нужна помощь прямо сейчас?
+                Need Help Right Now?
               </h3>
               <p className="text-gray-600 mb-6 font-semibold">
-                Проверьте наши часто задаваемые вопросы или вернитесь на главную
+                Check our frequently asked questions or return to the homepage
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
                   className="bg-brand hover:bg-brand/90 text-black rounded-2xl font-black"
                 >
-                  <Link to="/faq">Посмотреть FAQ</Link>
+                  <Link to="/faq">View FAQ</Link>
                 </Button>
                 <Button 
                   asChild 
@@ -447,7 +447,7 @@ export default function Contact() {
                 >
                   <Link to="/">
                     <ArrowLeft className="w-4 h-4 mr-2" />
-                    Вернуться на главную
+                    Back to Homepage
                   </Link>
                 </Button>
               </div>
@@ -460,7 +460,7 @@ export default function Contact() {
       <footer className="bg-neutral-900 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-sm text-gray-400 font-semibold">
-            © 2025 DeliveryDiscount — Все права защищены
+            © 2025 DeliveryDiscount — All rights reserved
           </p>
         </div>
       </footer>
