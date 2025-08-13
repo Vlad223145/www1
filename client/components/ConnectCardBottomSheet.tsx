@@ -255,9 +255,10 @@ export default function ConnectCardBottomSheet({
               {currentStep === 3 && (
                 <>
                   {/* Header */}
-                  <div className="text-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-400 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                      <CreditCard className="w-8 h-8 text-white" />
+                  <div className="text-center mb-6 sm:mb-6 sm:mt-0 mt-7">
+                    {/* Logo */}
+                    <div className="w-16 h-16 bg-brand rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                      <span className="text-2xl font-black text-black">DD</span>
                     </div>
                     <h2 className="text-2xl font-black mb-2">Connect Your Card</h2>
                     <p className="text-gray-600 font-semibold">
@@ -266,7 +267,7 @@ export default function ConnectCardBottomSheet({
                   </div>
 
                   {/* Card Form */}
-                  <div className="space-y-4 mb-6 flex-1">
+                  <div className="space-y-4 mb-6 flex-1 sm:mt-0 mt-5">
                     <div>
                       <input
                         type="text"
