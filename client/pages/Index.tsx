@@ -197,7 +197,7 @@ export default function Index() {
       name: "Anna K.",
       city: "Berlin",
       rating: 5,
-      comment: "Amazing discount! Saved €67 in a month using Wolt",
+      comment: "Amazing discount! Saved ��67 in a month using Wolt",
       savings: "€67",
       avatar: "A",
     },
@@ -807,7 +807,7 @@ export default function Index() {
             </div>
 
             <div className="text-center">
-              <h4 className="font-black mb-4">Поддержка</h4>
+              <h4 className="font-black mb-4">Support</h4>
               <div className="space-y-3">
                 <Link
                   to="/faq"
@@ -821,18 +821,18 @@ export default function Index() {
                   className="flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 px-4 py-3 rounded-2xl transition-colors group"
                 >
                   <MessageSquare className="w-5 h-5 text-gray-700 group-hover:scale-110 transition-transform" />
-                  <span className="text-black font-black">Контакты</span>
+                  <span className="text-black font-black">Contact</span>
                 </Link>
               </div>
             </div>
 
             <div className="text-center md:text-right">
-              <h4 className="font-black mb-4">Связь</h4>
+              <h4 className="font-black mb-4">Contact</h4>
               <p className="text-gray-600 text-sm font-semibold mb-2">
                 support@deliverydiscount.com
               </p>
               <p className="text-gray-600 text-xs font-medium">
-                24/7 поддержка
+                24/7 Support
               </p>
             </div>
           </div>
