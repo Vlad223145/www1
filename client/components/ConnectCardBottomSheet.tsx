@@ -32,6 +32,10 @@ export default function ConnectCardBottomSheet({
       setIsLoading(false);
       setAnimateEmojis(false);
       setIsMinimized(false);
+      // Delay to ensure smooth slide-up animation
+      setTimeout(() => setIsVisible(true), 10);
+    } else {
+      setIsVisible(false);
     }
   }, [isOpen]);
 
