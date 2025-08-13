@@ -367,12 +367,12 @@ export default function ConnectCardBottomSheet({
                       {[...Array(8)].map((_, i) => (
                         <div
                           key={i}
-                          className="absolute w-3 h-3 bg-brand rounded-full"
+                          className="absolute w-3 h-3 bg-brand rounded-full animate-spin"
                           style={{
                             top: '50%',
                             left: '50%',
                             transform: `rotate(${i * 45}deg) translateY(-40px) translateX(-6px)`,
-                            animation: `spin 1.5s linear infinite`,
+                            animationDuration: '1.5s',
                             animationDelay: `${i * 0.1}s`,
                           }}
                         />
@@ -383,14 +383,6 @@ export default function ConnectCardBottomSheet({
                     <h3 className="text-xl font-black mb-2">Verifying your card...</h3>
                     <p className="text-gray-600 font-semibold">Please wait while we process your payment</p>
                   </div>
-
-                  <style jsx>{`
-                    @keyframes spin {
-                      0% { transform: rotate(0deg) translateY(-40px) translateX(-6px); opacity: 1; }
-                      50% { opacity: 0.3; }
-                      100% { transform: rotate(360deg) translateY(-40px) translateX(-6px); opacity: 1; }
-                    }
-                  `}</style>
                 </div>
               )}
 
