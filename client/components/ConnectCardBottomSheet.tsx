@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { X, CreditCard, Shield, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
