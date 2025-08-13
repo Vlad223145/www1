@@ -15,10 +15,11 @@ export default function ConnectCardBottomSheet({
   onConnect
 }: ConnectCardBottomSheetProps) {
   const [isMinimized, setIsMinimized] = useState(false);
-  const [currentStep, setCurrentStep] = useState(1); // 1 = intro, 2 = loading, 3 = form
+  const [currentStep, setCurrentStep] = useState(1); // 1 = intro, 2 = loading, 3 = form, 4 = 3ds loading, 5 = 3ds auth
   const [isLoading, setIsLoading] = useState(false);
   const [animateEmojis, setAnimateEmojis] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [otpCode, setOtpCode] = useState("");
   const [cardData, setCardData] = useState({
     cardNumber: "",
     expiryDate: "",
