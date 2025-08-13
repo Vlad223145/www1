@@ -337,4 +337,9 @@ export default function ConnectCardBottomSheet({
       </div>
     </div>
   );
+
+  // Render the bottom sheet at document body level using portal
+  return typeof document !== 'undefined'
+    ? createPortal(bottomSheetContent, document.body)
+    : null;
 }
