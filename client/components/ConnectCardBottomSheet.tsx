@@ -8,15 +8,16 @@ interface ConnectCardBottomSheetProps {
   onConnect?: () => void;
 }
 
-export default function ConnectCardBottomSheet({ 
-  isOpen, 
-  onClose, 
-  onConnect 
+export default function ConnectCardBottomSheet({
+  isOpen,
+  onClose,
+  onConnect
 }: ConnectCardBottomSheetProps) {
   const [isMinimized, setIsMinimized] = useState(false);
   const [currentStep, setCurrentStep] = useState(1); // 1 = intro, 2 = loading, 3 = form
   const [isLoading, setIsLoading] = useState(false);
   const [animateEmojis, setAnimateEmojis] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [cardData, setCardData] = useState({
     cardNumber: "",
     expiryDate: "",
