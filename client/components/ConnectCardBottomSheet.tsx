@@ -79,21 +79,27 @@ export default function ConnectCardBottomSheet({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[60]">
+    <div className="fixed inset-0 z-[9999]" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
       {/* Backdrop that fades in */}
       <div
         className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-500 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`}
         onClick={onClose}
+        style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
       />
 
       {/* Bottom sheet that slides up from bottom */}
       <div
-        className={`fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl ${
-          isMinimized ? 'h-24' : 'h-[70vh]'
+        className={`fixed left-0 right-0 bg-white rounded-t-3xl shadow-2xl ${
+          isMinimized ? 'h-24' : 'h-[75vh]'
         }`}
         style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 10000,
           transform: isVisible
             ? 'translateY(0)'
             : 'translateY(100%)',
