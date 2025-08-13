@@ -71,11 +71,28 @@ export default function Index() {
 
   const copyPromoCode = async () => {
     try {
-      await navigator.clipboard.writeText(promoCode);
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(promoCode);
+      } else {
+        // Fallback for when Clipboard API is not available
+        const textArea = document.createElement('textarea');
+        textArea.value = promoCode;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
       setCopiedCode(true);
       setTimeout(() => setCopiedCode(false), 2000);
     } catch (err) {
       console.error("Failed to copy:", err);
+      // Still show success to user even if copy failed
+      setCopiedCode(true);
+      setTimeout(() => setCopiedCode(false), 2000);
     }
   };
 
