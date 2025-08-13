@@ -74,11 +74,29 @@ export default function ConnectCardBottomSheet({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[60]">
+      {/* Backdrop that fades in */}
       <div
-        className={`fixed bottom-0 left-0 right-0 bg-white transition-all duration-500 ease-out ${
+        className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-500 ${
+          isOpen ? 'opacity-100' : 'opacity-0'
+        }`}
+        onClick={onClose}
+      />
+
+      {/* Bottom sheet that slides up from bottom */}
+      <div
+        className={`fixed bottom-0 left-0 right-0 bg-white transition-all duration-500 ease-out transform ${
+          isOpen
+            ? 'translate-y-0'
+            : 'translate-y-full'
+        } ${
           isMinimized ? 'h-24' : 'h-[70vh]'
         } rounded-t-3xl shadow-2xl`}
+        style={{
+          transform: isOpen
+            ? (isMinimized ? 'translateY(0)' : 'translateY(0)')
+            : 'translateY(100%)'
+        }}
       >
         {/* Handle Bar */}
         <div 
