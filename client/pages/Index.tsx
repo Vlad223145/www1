@@ -21,7 +21,10 @@ import {
   Smartphone,
   CreditCard,
   Package,
+  HelpCircle,
+  MessageSquare,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import ScratchCard from "@/components/ScratchCard";
 import ScrollRoad from "@/components/ScrollRoad";
@@ -68,11 +71,28 @@ export default function Index() {
 
   const copyPromoCode = async () => {
     try {
-      await navigator.clipboard.writeText(promoCode);
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(promoCode);
+      } else {
+        // Fallback for when Clipboard API is not available
+        const textArea = document.createElement("textarea");
+        textArea.value = promoCode;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+      }
       setCopiedCode(true);
       setTimeout(() => setCopiedCode(false), 2000);
     } catch (err) {
       console.error("Failed to copy:", err);
+      // Still show success to user even if copy failed
+      setCopiedCode(true);
+      setTimeout(() => setCopiedCode(false), 2000);
     }
   };
 
@@ -194,7 +214,7 @@ export default function Index() {
       name: "Anna K.",
       city: "Berlin",
       rating: 5,
-      comment: "Amazing discount! Saved €67 in a month using Wolt",
+      comment: "Amazing discount! Saved ��67 in a month using Wolt",
       savings: "€67",
       avatar: "A",
     },
@@ -288,6 +308,15 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-white text-black font-sans overflow-x-hidden relative">
+      {/* Fixed FAQ Button */}
+      <Link
+        to="/faq"
+        className="fixed top-4 right-4 z-50 bg-brand hover:bg-brand/90 text-black font-black px-4 py-2 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 flex items-center space-x-2"
+      >
+        <HelpCircle className="w-5 h-5" />
+        <span>FAQ</span>
+      </Link>
+
       {/* Full-page background effects */}
       <BackgroundEffects />
       {/* Hero Section */}
@@ -786,7 +815,7 @@ export default function Index() {
       {/* Footer */}
       <footer className="bg-white py-12 px-4 border-t border-gray-200 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div>
               <h3 className="font-black text-lg mb-4">DeliveryDiscount</h3>
               <p className="text-gray-600 text-sm font-semibold">
@@ -794,65 +823,32 @@ export default function Index() {
               </p>
             </div>
 
-            <div>
-              <h4 className="font-black mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-black transition-colors font-semibold"
-                  >
-                    Terms of Use
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-black transition-colors font-semibold"
-                  >
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-black transition-colors font-semibold"
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
+            <div className="text-center">
               <h4 className="font-black mb-4">Support</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-black transition-colors font-semibold"
-                  >
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-black transition-colors font-semibold"
-                  >
-                    Live Chat
-                  </a>
-                </li>
-              </ul>
+              <div className="space-y-3">
+                <Link
+                  to="/faq"
+                  className="flex items-center justify-center space-x-2 bg-brand/10 hover:bg-brand/20 px-4 py-3 rounded-2xl transition-colors group"
+                >
+                  <HelpCircle className="w-5 h-5 text-brand group-hover:scale-110 transition-transform" />
+                  <span className="text-black font-black">FAQ</span>
+                </Link>
+                <Link
+                  to="/contact"
+                  className="flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 px-4 py-3 rounded-2xl transition-colors group"
+                >
+                  <MessageSquare className="w-5 h-5 text-gray-700 group-hover:scale-110 transition-transform" />
+                  <span className="text-black font-black">Contact</span>
+                </Link>
+              </div>
             </div>
 
-            <div>
-              <h4 className="font-black mb-4">Follow Us</h4>
-              <div className="flex space-x-4">
-                <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-                <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-                <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-              </div>
+            <div className="text-center md:text-right">
+              <h4 className="font-black mb-4">Contact</h4>
+              <p className="text-gray-600 text-sm font-semibold mb-2">
+                support@deliverydiscount.com
+              </p>
+              <p className="text-gray-600 text-xs font-medium">24/7 Support</p>
             </div>
           </div>
 
