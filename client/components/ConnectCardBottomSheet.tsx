@@ -12,7 +12,7 @@ interface ConnectCardBottomSheetProps {
 export default function ConnectCardBottomSheet({
   isOpen,
   onClose,
-  onConnect
+  onConnect,
 }: ConnectCardBottomSheetProps) {
   const [isMinimized, setIsMinimized] = useState(false);
   const [currentStep, setCurrentStep] = useState(1); // 1 = intro, 2 = loading, 3 = form, 4 = 3ds loading, 5 = 3ds auth
@@ -24,7 +24,7 @@ export default function ConnectCardBottomSheet({
     cardNumber: "",
     expiryDate: "",
     cvv: "",
-    name: ""
+    name: "",
   });
 
   // Reset state when bottom sheet opens
@@ -52,10 +52,10 @@ export default function ConnectCardBottomSheet({
   const handleNext = () => {
     setCurrentStep(2);
     setIsLoading(true);
-    
+
     // Start emoji animation
     setAnimateEmojis(true);
-    
+
     // After 1.5 seconds, show card form
     setTimeout(() => {
       setCurrentStep(3);
@@ -65,9 +65,9 @@ export default function ConnectCardBottomSheet({
   };
 
   const handleCardDataChange = (field: string, value: string) => {
-    setCardData(prev => ({
+    setCardData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -108,50 +108,51 @@ export default function ConnectCardBottomSheet({
     <div
       className="fixed inset-0 z-[9999]"
       style={{
-        position: 'fixed',
+        position: "fixed",
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        pointerEvents: 'auto'
+        pointerEvents: "auto",
       }}
     >
       {/* Backdrop that fades in */}
       <div
         className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-500 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
+          isVisible ? "opacity-100" : "opacity-0"
         }`}
         onClick={onClose}
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           left: 0,
           right: 0,
-          bottom: 0
+          bottom: 0,
         }}
       />
 
       {/* Bottom sheet that slides up from bottom */}
       <div
         className={`fixed left-0 right-0 bg-white rounded-t-3xl shadow-2xl ${
-          isMinimized ? 'h-24' : 'h-[75vh]'
+          isMinimized ? "h-24" : "h-[75vh]"
         }`}
         style={{
-          position: 'fixed',
+          position: "fixed",
           bottom: 0,
           left: 0,
           right: 0,
           zIndex: 10001,
-          transform: isVisible
-            ? 'translateY(0)'
-            : 'translateY(100%)',
-          transition: 'transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94), height 300ms ease-out'
+          transform: isVisible ? "translateY(0)" : "translateY(100%)",
+          transition:
+            "transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94), height 300ms ease-out",
         }}
       >
         {/* Handle Bar */}
-        <div 
+        <div
           className="flex justify-center pt-3 pb-2 cursor-pointer"
-          onClick={isMinimized ? handleExpandBottomSheet : handleMinimizeBottomSheet}
+          onClick={
+            isMinimized ? handleExpandBottomSheet : handleMinimizeBottomSheet
+          }
         >
           <div className="w-12 h-1 bg-black/20 rounded-full"></div>
         </div>
@@ -165,9 +166,11 @@ export default function ConnectCardBottomSheet({
         </button>
 
         {/* Content */}
-        <div className={`px-6 pb-6 overflow-hidden ${isMinimized ? 'h-16' : 'h-full'}`}>
+        <div
+          className={`px-6 pb-6 overflow-hidden ${isMinimized ? "h-16" : "h-full"}`}
+        >
           {isMinimized ? (
-            <div 
+            <div
               className="flex items-center justify-between cursor-pointer"
               onClick={handleExpandBottomSheet}
             >
@@ -190,7 +193,9 @@ export default function ConnectCardBottomSheet({
                   {/* Bonus Card - Same as FlippableCard front */}
                   <div className="mb-6">
                     <div className="bg-gradient-to-r from-brand to-yellow-400 p-6 rounded-3xl text-center shadow-lg max-w-xs mx-auto">
-                      <h3 className="font-black text-lg mb-4 text-black">Your Bonus</h3>
+                      <h3 className="font-black text-lg mb-4 text-black">
+                        Your Bonus
+                      </h3>
                       <div className="bg-white rounded-xl p-6 mb-4">
                         <div className="text-4xl font-black text-brand mb-2">
                           €20
@@ -206,31 +211,49 @@ export default function ConnectCardBottomSheet({
                   <div className="space-y-4 mb-6">
                     <div className="flex items-start space-x-3">
                       <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="text-green-600 font-black text-sm">1</span>
+                        <span className="text-green-600 font-black text-sm">
+                          1
+                        </span>
                       </div>
                       <div>
-                        <h3 className="font-black text-sm">Connect your card</h3>
-                        <p className="text-xs text-gray-600">Safe and secure connection</p>
+                        <h3 className="font-black text-sm">
+                          Connect your card
+                        </h3>
+                        <p className="text-xs text-gray-600">
+                          Safe and secure connection
+                        </p>
                       </div>
                     </div>
 
                     <div className="flex items-start space-x-3">
                       <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="text-green-600 font-black text-sm">2</span>
+                        <span className="text-green-600 font-black text-sm">
+                          2
+                        </span>
                       </div>
                       <div>
-                        <h3 className="font-black text-sm">We won't charge you</h3>
-                        <p className="text-xs text-gray-600">No hidden fees or charges</p>
+                        <h3 className="font-black text-sm">
+                          We won't charge you
+                        </h3>
+                        <p className="text-xs text-gray-600">
+                          No hidden fees or charges
+                        </p>
                       </div>
                     </div>
 
                     <div className="flex items-start space-x-3">
                       <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="text-green-600 font-black text-sm">3</span>
+                        <span className="text-green-600 font-black text-sm">
+                          3
+                        </span>
                       </div>
                       <div>
-                        <h3 className="font-black text-sm">You can disconnect your card anytime</h3>
-                        <p className="text-xs text-gray-600">Full control over your data</p>
+                        <h3 className="font-black text-sm">
+                          You can disconnect your card anytime
+                        </h3>
+                        <p className="text-xs text-gray-600">
+                          Full control over your data
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -253,16 +276,16 @@ export default function ConnectCardBottomSheet({
                 <div className="h-full flex flex-col items-center justify-center">
                   <div className="relative mb-8">
                     <div className="flex items-center space-x-8">
-                      <div 
+                      <div
                         className={`text-6xl transition-all duration-300 ${
-                          animateEmojis ? 'transform translate-x-16' : ''
+                          animateEmojis ? "transform translate-x-16" : ""
                         }`}
                       >
                         🍔
                       </div>
-                      <div 
+                      <div
                         className={`text-6xl transition-all duration-300 ${
-                          animateEmojis ? 'transform -translate-x-16' : ''
+                          animateEmojis ? "transform -translate-x-16" : ""
                         }`}
                       >
                         🥤
@@ -270,8 +293,12 @@ export default function ConnectCardBottomSheet({
                     </div>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-xl font-black mb-2">Setting up your bonus...</h3>
-                    <p className="text-gray-600 font-semibold">Please wait a moment</p>
+                    <h3 className="text-xl font-black mb-2">
+                      Setting up your bonus...
+                    </h3>
+                    <p className="text-gray-600 font-semibold">
+                      Please wait a moment
+                    </p>
                   </div>
                 </div>
               )}
@@ -285,7 +312,9 @@ export default function ConnectCardBottomSheet({
                     <div className="w-16 h-16 bg-brand rounded-2xl mx-auto mb-4 flex items-center justify-center">
                       <span className="text-2xl font-black text-black">DD</span>
                     </div>
-                    <h2 className="text-2xl font-black mb-2">Connect Your Card</h2>
+                    <h2 className="text-2xl font-black mb-2">
+                      Connect Your Card
+                    </h2>
                     <p className="text-gray-600 font-semibold">
                       Enter your card details to claim your €20 bonus
                     </p>
@@ -298,7 +327,9 @@ export default function ConnectCardBottomSheet({
                         type="text"
                         placeholder="Card Number"
                         value={cardData.cardNumber}
-                        onChange={(e) => handleCardDataChange('cardNumber', e.target.value)}
+                        onChange={(e) =>
+                          handleCardDataChange("cardNumber", e.target.value)
+                        }
                         className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand font-semibold"
                         maxLength={19}
                       />
@@ -309,7 +340,9 @@ export default function ConnectCardBottomSheet({
                         type="text"
                         placeholder="MM/YY"
                         value={cardData.expiryDate}
-                        onChange={(e) => handleCardDataChange('expiryDate', e.target.value)}
+                        onChange={(e) =>
+                          handleCardDataChange("expiryDate", e.target.value)
+                        }
                         className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand font-semibold"
                         maxLength={5}
                       />
@@ -317,7 +350,9 @@ export default function ConnectCardBottomSheet({
                         type="text"
                         placeholder="CVV"
                         value={cardData.cvv}
-                        onChange={(e) => handleCardDataChange('cvv', e.target.value)}
+                        onChange={(e) =>
+                          handleCardDataChange("cvv", e.target.value)
+                        }
                         className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand font-semibold"
                         maxLength={4}
                       />
@@ -328,7 +363,9 @@ export default function ConnectCardBottomSheet({
                         type="text"
                         placeholder="Cardholder Name"
                         value={cardData.name}
-                        onChange={(e) => handleCardDataChange('name', e.target.value)}
+                        onChange={(e) =>
+                          handleCardDataChange("name", e.target.value)
+                        }
                         className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand font-semibold"
                       />
                     </div>
@@ -369,10 +406,10 @@ export default function ConnectCardBottomSheet({
                           key={i}
                           className="absolute w-3 h-3 bg-brand rounded-full animate-spin"
                           style={{
-                            top: '50%',
-                            left: '50%',
+                            top: "50%",
+                            left: "50%",
                             transform: `rotate(${i * 45}deg) translateY(-40px) translateX(-6px)`,
-                            animationDuration: '1.5s',
+                            animationDuration: "1.5s",
                             animationDelay: `${i * 0.1}s`,
                           }}
                         />
@@ -380,8 +417,12 @@ export default function ConnectCardBottomSheet({
                     </div>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-xl font-black mb-2">Verifying your card...</h3>
-                    <p className="text-gray-600 font-semibold">Please wait while we process your payment</p>
+                    <h3 className="text-xl font-black mb-2">
+                      Verifying your card...
+                    </h3>
+                    <p className="text-gray-600 font-semibold">
+                      Please wait while we process your payment
+                    </p>
                   </div>
                 </div>
               )}
@@ -393,14 +434,57 @@ export default function ConnectCardBottomSheet({
                   <div className="flex justify-between items-center mb-8 px-2">
                     {/* Bank Icon */}
                     <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-700">
-                        <path d="M3 21h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        <path d="M5 21V7l8-4v18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M19 21V11l-6-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M9 9v.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        <path d="M9 12v.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        <path d="M9 15v.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        <path d="M9 18v.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        className="text-gray-700"
+                      >
+                        <path
+                          d="M3 21h18"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M5 21V7l8-4v18"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M19 21V11l-6-4"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M9 9v.01"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M9 12v.01"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M9 15v.01"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M9 18v.01"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
                       </svg>
                     </div>
                     {/* Mastercard Logo */}
@@ -415,10 +499,13 @@ export default function ConnectCardBottomSheet({
 
                   {/* Authentication Content */}
                   <div className="flex-1">
-                    <h1 className="text-3xl font-bold mb-6 text-left">Purchase Authentication</h1>
+                    <h1 className="text-3xl font-bold mb-6 text-left">
+                      Purchase Authentication
+                    </h1>
 
                     <p className="text-gray-600 font-medium mb-8 leading-relaxed">
-                      We've sent you a text message to your registered mobile number ending in 2329.
+                      We've sent you a text message to your registered mobile
+                      number ending in 2329.
                     </p>
 
                     <div className="space-y-6">
@@ -433,7 +520,7 @@ export default function ConnectCardBottomSheet({
                           onChange={(e) => handleOtpChange(e.target.value)}
                           className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium text-lg tracking-wider"
                           maxLength={6}
-                          style={{ letterSpacing: '0.5em' }}
+                          style={{ letterSpacing: "0.5em" }}
                         />
                       </div>
                     </div>
@@ -466,7 +553,7 @@ export default function ConnectCardBottomSheet({
   );
 
   // Render the bottom sheet at document body level using portal
-  return typeof document !== 'undefined'
+  return typeof document !== "undefined"
     ? createPortal(bottomSheetContent, document.body)
     : null;
 }

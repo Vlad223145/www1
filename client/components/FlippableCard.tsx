@@ -101,8 +101,8 @@ export default function FlippableCard({
                 </div>
                 <div className="text-sm font-semibold text-gray-200 leading-relaxed">
                   This promo code works for any orders with all our partner
-                  delivery services. Simply paste the code at checkout to receive
-                  your discount. Valid for new users only.
+                  delivery services. Simply paste the code at checkout to
+                  receive your discount. Valid for new users only.
                 </div>
                 <div className="text-xs text-gray-300 mt-4">
                   Click to flip back

@@ -1,6 +1,19 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ChevronDown, Search, Smartphone, Download, CreditCard, MapPin, Shield, Clock, Users, Star, AlertCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  ChevronDown,
+  Search,
+  Smartphone,
+  Download,
+  CreditCard,
+  MapPin,
+  Shield,
+  Clock,
+  Users,
+  Star,
+  AlertCircle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -32,12 +45,12 @@ export default function FAQ() {
         "Select a restaurant or store for your order",
         "Add items to cart and proceed to checkout",
         "In the 'Promo code' section, enter the code €20",
-        "The discount will be automatically applied to your order"
-      ]
+        "The discount will be automatically applied to your order",
+      ],
     },
     {
       name: "Uber Eats",
-      logo: "U", 
+      logo: "U",
       color: "bg-green-500",
       description: "Food and groceries delivered in 30 minutes",
       deepLink: "ubereats://",
@@ -49,13 +62,13 @@ export default function FAQ() {
         "Find the restaurant you want in your area",
         "Build your order and tap 'Cart'",
         "On the payment page find the 'Promo code' field",
-        "Enter €20 and tap 'Apply'"
-      ]
+        "Enter €20 and tap 'Apply'",
+      ],
     },
     {
       name: "Glovo",
       logo: "G",
-      color: "bg-yellow-500", 
+      color: "bg-yellow-500",
       description: "Everything you need delivered fast",
       deepLink: "glovo://",
       cities: "80+ cities",
@@ -64,10 +77,10 @@ export default function FAQ() {
       steps: [
         "Open Glovo and log into your account",
         "Choose category: food, groceries or pharmacy",
-        "Complete your order and proceed to payment", 
+        "Complete your order and proceed to payment",
         "In the 'Promo codes' section enter €20",
-        "Confirm the discount application"
-      ]
+        "Confirm the discount application",
+      ],
     },
     {
       name: "Deliveroo",
@@ -83,8 +96,8 @@ export default function FAQ() {
         "Select a restaurant and add dishes to cart",
         "Proceed to order checkout",
         "Find the 'Voucher code' field on payment page",
-        "Enter €20 and activate the discount"
-      ]
+        "Enter €20 and activate the discount",
+      ],
     },
     {
       name: "Bolt Food",
@@ -92,7 +105,7 @@ export default function FAQ() {
       color: "bg-orange-500",
       description: "Affordable delivery every day",
       deepLink: "boltfood://",
-      cities: "60+ cities", 
+      cities: "60+ cities",
       backgroundImage:
         "https://cdn.builder.io/api/v1/image/assets%2F86f4e443f35a4609b52c42bedac1a4c2%2Feb4a328e67d249678bc89a0890c2ad92",
       steps: [
@@ -100,8 +113,8 @@ export default function FAQ() {
         "Select a restaurant in your city",
         "Add food to cart and proceed to order",
         "On payment screen tap 'Add promo code'",
-        "Paste code €20 and apply the discount"
-      ]
+        "Paste code €20 and apply the discount",
+      ],
     },
     {
       name: "DoorDash",
@@ -114,150 +127,214 @@ export default function FAQ() {
         "https://cdn.builder.io/api/v1/image/assets%2F86f4e443f35a4609b52c42bedac1a4c2%2F31a035b6431845a4b82bdbdfa8bc4098?format=webp",
       steps: [
         "Open DoorDash and select a restaurant",
-        "Build your order and go to cart", 
+        "Build your order and go to cart",
         "On the Checkout page find 'Promo Code'",
         "Enter €20 in the promo code field",
-        "Tap Apply to activate the discount"
-      ]
+        "Tap Apply to activate the discount",
+      ],
     },
   ];
 
   const faqs: FAQItem[] = [
     {
       question: "How do I get the €20 delivery discount?",
-      answer: "Copy the ��20 promo code from our website and paste it when placing an order in any partner delivery app.",
-      details: "The promo code is automatically copied when you click the 'Get Discount' button. Simply paste it in the promo code field during checkout.",
-      category: "general"
+      answer:
+        "Copy the ��20 promo code from our website and paste it when placing an order in any partner delivery app.",
+      details:
+        "The promo code is automatically copied when you click the 'Get Discount' button. Simply paste it in the promo code field during checkout.",
+      category: "general",
     },
     {
       question: "Which delivery services does the discount work with?",
-      answer: "The discount works with Wolt, Uber Eats, Glovo, DoorDash, Deliveroo, Bolt Food and other partner services.",
-      details: "The full list of partners is constantly expanding. Check the current information in the 'Partners' section on the homepage.",
-      category: "partnership"
+      answer:
+        "The discount works with Wolt, Uber Eats, Glovo, DoorDash, Deliveroo, Bolt Food and other partner services.",
+      details:
+        "The full list of partners is constantly expanding. Check the current information in the 'Partners' section on the homepage.",
+      category: "partnership",
     },
     {
       question: "Can I use the promo code multiple times?",
-      answer: "The promo code is intended for one-time use by new users of partner services.",
-      details: "Each promo code works once per user. For additional discounts, follow new promotions on our website.",
-      category: "general"
+      answer:
+        "The promo code is intended for one-time use by new users of partner services.",
+      details:
+        "Each promo code works once per user. For additional discounts, follow new promotions on our website.",
+      category: "general",
     },
     {
       question: "Which countries and cities does the promotion work in?",
-      answer: "The promotion is available in 27 European countries, all US states and most Canadian provinces - over 300 cities.",
-      details: "The geography is constantly expanding. The current list of cities is available in the 'Geography' section on the homepage.",
-      category: "delivery"
+      answer:
+        "The promotion is available in 27 European countries, all US states and most Canadian provinces - over 300 cities.",
+      details:
+        "The geography is constantly expanding. The current list of cities is available in the 'Geography' section on the homepage.",
+      category: "delivery",
     },
     {
       question: "What should I do if the promo code doesn't work?",
-      answer: "Make sure you entered the code €20 correctly. If the problem persists, check the promotion terms or contact support.",
-      details: "Common reasons: code already used, order below minimum amount, service not participating in promotion. Try updating the app.",
-      category: "technical"
+      answer:
+        "Make sure you entered the code €20 correctly. If the problem persists, check the promotion terms or contact support.",
+      details:
+        "Common reasons: code already used, order below minimum amount, service not participating in promotion. Try updating the app.",
+      category: "technical",
     },
     {
       question: "Is there a minimum order amount to use the discount?",
-      answer: "The minimum order amount is €25. The €20 discount is applied automatically when this amount is reached.",
-      details: "The minimum amount may vary depending on the region and partner service. Check the conditions in the delivery app.",
-      category: "general"
+      answer:
+        "The minimum order amount is €25. The €20 discount is applied automatically when this amount is reached.",
+      details:
+        "The minimum amount may vary depending on the region and partner service. Check the conditions in the delivery app.",
+      category: "general",
     },
     {
       question: "Can I combine the discount with other promotions?",
-      answer: "Generally, the promo code cannot be combined with other discounts, unless specifically stated in the promotion terms.",
-      details: "Each delivery service has its own rules for combining promo codes. Check details in the app when placing an order.",
-      category: "general"
+      answer:
+        "Generally, the promo code cannot be combined with other discounts, unless specifically stated in the promotion terms.",
+      details:
+        "Each delivery service has its own rules for combining promo codes. Check details in the app when placing an order.",
+      category: "general",
     },
     {
       question: "How soon will my order arrive after applying the discount?",
-      answer: "Delivery time depends on the chosen service and usually takes 25-45 minutes. The discount doesn't affect delivery speed.",
-      details: "In major cities, delivery is usually faster. Exact time is shown in the delivery app when selecting a restaurant.",
-      category: "delivery"
+      answer:
+        "Delivery time depends on the chosen service and usually takes 25-45 minutes. The discount doesn't affect delivery speed.",
+      details:
+        "In major cities, delivery is usually faster. Exact time is shown in the delivery app when selecting a restaurant.",
+      category: "delivery",
     },
     {
       question: "Is it safe to use our service?",
-      answer: "Yes, we use SSL encryption and don't collect personal data. Promo codes are provided by official partners.",
-      details: "We don't request bank card details or personal information. All payments go through secure partner service systems.",
-      category: "security"
+      answer:
+        "Yes, we use SSL encryption and don't collect personal data. Promo codes are provided by official partners.",
+      details:
+        "We don't request bank card details or personal information. All payments go through secure partner service systems.",
+      category: "security",
     },
     {
       question: "How often do new promotions and promo codes appear?",
-      answer: "New promotions appear weekly. Subscribe to notifications to be first to know about discounts.",
-      details: "Follow updates on the homepage or enable push notifications for current promotion information.",
-      category: "general"
+      answer:
+        "New promotions appear weekly. Subscribe to notifications to be first to know about discounts.",
+      details:
+        "Follow updates on the homepage or enable push notifications for current promotion information.",
+      category: "general",
     },
     {
-      question: "What should I do if the delivery app doesn't accept the promo code?",
-      answer: "Try updating the app, restarting it, or checking if you entered the code correctly. Contact the app's support service.",
-      details: "Some apps require updates to support new promo codes. Also make sure your account meets the promotion conditions.",
-      category: "technical"
+      question:
+        "What should I do if the delivery app doesn't accept the promo code?",
+      answer:
+        "Try updating the app, restarting it, or checking if you entered the code correctly. Contact the app's support service.",
+      details:
+        "Some apps require updates to support new promo codes. Also make sure your account meets the promotion conditions.",
+      category: "technical",
     },
     {
       question: "Does the discount work for items from stores and pharmacies?",
-      answer: "Yes, the discount works not only for restaurants, but also for orders from supermarkets, pharmacies and other stores through partner apps.",
-      details: "Availability depends on the specific delivery service. In Wolt and Glovo the discount works on all product categories.",
-      category: "delivery"
+      answer:
+        "Yes, the discount works not only for restaurants, but also for orders from supermarkets, pharmacies and other stores through partner apps.",
+      details:
+        "Availability depends on the specific delivery service. In Wolt and Glovo the discount works on all product categories.",
+      category: "delivery",
     },
     {
       question: "Can I use the discount for corporate orders?",
-      answer: "The promo code is intended for personal use. There are separate discount programs for corporate clients.",
-      details: "Contact us for information about corporate discounts and special conditions for business clients.",
-      category: "general"
+      answer:
+        "The promo code is intended for personal use. There are separate discount programs for corporate clients.",
+      details:
+        "Contact us for information about corporate discounts and special conditions for business clients.",
+      category: "general",
     },
     {
       question: "Does the discount work on weekends and holidays?",
-      answer: "Yes, the discount is active 24/7 on all days of the week, including weekends and holidays.",
-      details: "Some restaurants may have limited menus on holidays, but the discount remains active when the minimum order amount is met.",
-      category: "general"
+      answer:
+        "Yes, the discount is active 24/7 on all days of the week, including weekends and holidays.",
+      details:
+        "Some restaurants may have limited menus on holidays, but the discount remains active when the minimum order amount is met.",
+      category: "general",
     },
     {
-      question: "What should I do if money was charged but the discount wasn't applied?",
-      answer: "Contact the delivery service's support with your order number. They will refund the difference or credit bonuses for your next order.",
-      details: "Save screenshots with the promo code and order receipt. This will help resolve the refund issue faster.",
-      category: "technical"
+      question:
+        "What should I do if money was charged but the discount wasn't applied?",
+      answer:
+        "Contact the delivery service's support with your order number. They will refund the difference or credit bonuses for your next order.",
+      details:
+        "Save screenshots with the promo code and order receipt. This will help resolve the refund issue faster.",
+      category: "technical",
     },
     {
       question: "Can I give the promo code to someone else?",
-      answer: "Each promo code is tied to first use. If you haven't used it, you can share it with friends.",
-      details: "We recommend each user get the promo code independently from our website for guaranteed functionality.",
-      category: "general"
+      answer:
+        "Each promo code is tied to first use. If you haven't used it, you can share it with friends.",
+      details:
+        "We recommend each user get the promo code independently from our website for guaranteed functionality.",
+      category: "general",
     },
     {
       question: "Does weather affect the ability to use the discount?",
-      answer: "The discount is available in any weather. However, some restaurants may suspend delivery in extreme weather conditions.",
-      details: "In bad weather, delivery time may increase, but the discount remains active for all operating establishments.",
-      category: "delivery"
+      answer:
+        "The discount is available in any weather. However, some restaurants may suspend delivery in extreme weather conditions.",
+      details:
+        "In bad weather, delivery time may increase, but the discount remains active for all operating establishments.",
+      category: "delivery",
     },
     {
       question: "Is there a mobile app for getting discounts?",
-      answer: "We have a mobile-optimized website version. A mobile app is currently in development.",
-      details: "Add our website to your phone's home screen for quick access to current promo codes and promotions.",
-      category: "technical"
+      answer:
+        "We have a mobile-optimized website version. A mobile app is currently in development.",
+      details:
+        "Add our website to your phone's home screen for quick access to current promo codes and promotions.",
+      category: "technical",
     },
     {
       question: "How do I know when the promo code expires?",
-      answer: "The promo code expiration date is indicated on the website. Usually our codes are valid for 30 days from receipt.",
-      details: "Use the promo code as soon as possible after receiving it. Expired codes are not restored.",
-      category: "general"
+      answer:
+        "The promo code expiration date is indicated on the website. Usually our codes are valid for 30 days from receipt.",
+      details:
+        "Use the promo code as soon as possible after receiving it. Expired codes are not restored.",
+      category: "general",
     },
     {
       question: "What should I do if there are no partner services in my city?",
-      answer: "The list of partners is constantly expanding. Leave a request and we'll notify you when services appear in your region.",
-      details: "We are actively working on expanding geography and adding new partners. Follow updates on the website.",
-      category: "partnership"
-    }
+      answer:
+        "The list of partners is constantly expanding. Leave a request and we'll notify you when services appear in your region.",
+      details:
+        "We are actively working on expanding geography and adding new partners. Follow updates on the website.",
+      category: "partnership",
+    },
   ];
 
   const categories = [
-    { value: "all", label: "All Questions", icon: <AlertCircle className="w-4 h-4" /> },
+    {
+      value: "all",
+      label: "All Questions",
+      icon: <AlertCircle className="w-4 h-4" />,
+    },
     { value: "general", label: "General", icon: <Users className="w-4 h-4" /> },
-    { value: "delivery", label: "Delivery", icon: <MapPin className="w-4 h-4" /> },
-    { value: "partnership", label: "Partners", icon: <Star className="w-4 h-4" /> },
-    { value: "technical", label: "Technical", icon: <Smartphone className="w-4 h-4" /> },
-    { value: "security", label: "Security", icon: <Shield className="w-4 h-4" /> },
+    {
+      value: "delivery",
+      label: "Delivery",
+      icon: <MapPin className="w-4 h-4" />,
+    },
+    {
+      value: "partnership",
+      label: "Partners",
+      icon: <Star className="w-4 h-4" />,
+    },
+    {
+      value: "technical",
+      label: "Technical",
+      icon: <Smartphone className="w-4 h-4" />,
+    },
+    {
+      value: "security",
+      label: "Security",
+      icon: <Shield className="w-4 h-4" />,
+    },
   ];
 
   const filteredFAQs = faqs.filter((faq) => {
-    const matchesSearch = faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "all" || faq.category === selectedCategory;
+    const matchesSearch =
+      faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "all" || faq.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -334,8 +411,8 @@ export default function FAQ() {
 
           <AnimatedSection animation="fade-up" delay={200}>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto font-semibold">
-              Detailed answers to all questions about our delivery discount service. 
-              Step-by-step instructions for each partner app.
+              Detailed answers to all questions about our delivery discount
+              service. Step-by-step instructions for each partner app.
             </p>
           </AnimatedSection>
         </div>
@@ -410,7 +487,9 @@ export default function FAQ() {
                       backgroundSize: "cover",
                     }}
                   >
-                    <p><br /></p>
+                    <p>
+                      <br />
+                    </p>
                   </div>
                   <h3 className="font-black text-lg mb-2">{partner.name}</h3>
                   <p className="text-sm text-gray-600 mb-2 font-semibold">
@@ -492,20 +571,23 @@ export default function FAQ() {
           <AnimatedSection animation="fade-up" delay={600}>
             <div className="mt-16 text-center">
               <div className="bg-white rounded-3xl p-8 shadow-apple border border-gray-100">
-                <h3 className="text-2xl font-black mb-4">Didn't Find an Answer?</h3>
+                <h3 className="text-2xl font-black mb-4">
+                  Didn't Find an Answer?
+                </h3>
                 <p className="text-gray-600 mb-6 font-semibold">
-                  Contact our support team, and we'll help solve any question within 24 hours
+                  Contact our support team, and we'll help solve any question
+                  within 24 hours
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
+                  <Button
                     asChild
                     className="bg-brand hover:bg-brand/90 text-black rounded-2xl font-black"
                   >
                     <Link to="/contact">Contact Support</Link>
                   </Button>
-                  <Button 
-                    asChild 
-                    variant="outline" 
+                  <Button
+                    asChild
+                    variant="outline"
                     className="rounded-2xl font-bold border-gray-300"
                   >
                     <Link to="/">
@@ -539,11 +621,15 @@ export default function FAQ() {
                           backgroundSize: "cover",
                         }}
                       >
-                        <p><br /></p>
+                        <p>
+                          <br />
+                        </p>
                       </div>
                       <div>
                         <h3 className="text-2xl font-black">{partner.name}</h3>
-                        <p className="text-gray-600 font-semibold">{partner.cities}</p>
+                        <p className="text-gray-600 font-semibold">
+                          {partner.cities}
+                        </p>
                       </div>
                     </div>
                     <button
@@ -577,7 +663,9 @@ export default function FAQ() {
                       Promo Code:
                     </h4>
                     <div className="bg-white rounded-xl p-3 text-center">
-                      <span className="text-2xl font-black text-brand">€20</span>
+                      <span className="text-2xl font-black text-brand">
+                        €20
+                      </span>
                     </div>
                   </div>
 

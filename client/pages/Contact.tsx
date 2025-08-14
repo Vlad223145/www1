@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Mail, MapPin, Phone, Send, Clock, Check, MessageSquare } from "lucide-react";
+import {
+  ArrowLeft,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  Clock,
+  Check,
+  MessageSquare,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -42,7 +51,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -149,8 +158,8 @@ export default function Contact() {
 
           <AnimatedSection animation="fade-up" delay={200}>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto font-semibold">
-              Have questions about delivery discounts? We're always ready to help and 
-              answer any questions within 24 hours
+              Have questions about delivery discounts? We're always ready to
+              help and answer any questions within 24 hours
             </p>
           </AnimatedSection>
         </div>
@@ -174,8 +183,8 @@ export default function Contact() {
                       Message Sent Successfully!
                     </h3>
                     <p className="text-gray-600 font-semibold mb-6">
-                      Thank you for your message! We'll get back to you 
-                      within 24 hours.
+                      Thank you for your message! We'll get back to you within
+                      24 hours.
                     </p>
                     <Button
                       onClick={() => setIsSubmitted(false)}
@@ -220,8 +229,8 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className={`w-full px-4 py-3 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 transition-all duration-200 font-semibold ${
-                          errors.email 
-                            ? "border-red-300 focus:ring-red-200 focus:border-red-400" 
+                          errors.email
+                            ? "border-red-300 focus:ring-red-200 focus:border-red-400"
                             : "border-gray-200 focus:ring-brand/20 focus:border-brand"
                         }`}
                         placeholder="your@email.com"
@@ -248,8 +257,8 @@ export default function Contact() {
                         required
                         rows={5}
                         className={`w-full px-4 py-3 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 transition-all duration-200 resize-none font-semibold ${
-                          errors.message 
-                            ? "border-red-300 focus:ring-red-200 focus:border-red-400" 
+                          errors.message
+                            ? "border-red-300 focus:ring-red-200 focus:border-red-400"
                             : "border-gray-200 focus:ring-brand/20 focus:border-brand"
                         }`}
                         placeholder="Tell us more about your question..."
@@ -383,7 +392,8 @@ export default function Contact() {
             {[
               {
                 question: "How to get €20 discount?",
-                answer: "Copy the promo code and paste it when ordering in the app",
+                answer:
+                  "Copy the promo code and paste it when ordering in the app",
                 link: "/faq",
               },
               {
@@ -393,7 +403,8 @@ export default function Contact() {
               },
               {
                 question: "Is it safe?",
-                answer: "Yes, we use SSL encryption and don't store personal data",
+                answer:
+                  "Yes, we use SSL encryption and don't store personal data",
                 link: "/trust",
               },
               {
@@ -426,9 +437,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection animation="scale-up">
             <div className="bg-white rounded-3xl p-8 shadow-apple border border-gray-100">
-              <h3 className="text-2xl font-black mb-4">
-                Need Help Right Now?
-              </h3>
+              <h3 className="text-2xl font-black mb-4">Need Help Right Now?</h3>
               <p className="text-gray-600 mb-6 font-semibold">
                 Check our frequently asked questions or return to the homepage
               </p>
@@ -439,9 +448,9 @@ export default function Contact() {
                 >
                   <Link to="/faq">View FAQ</Link>
                 </Button>
-                <Button 
-                  asChild 
-                  variant="outline" 
+                <Button
+                  asChild
+                  variant="outline"
                   className="rounded-2xl font-bold border-gray-300"
                   onClick={handleBackClick}
                 >

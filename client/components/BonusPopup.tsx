@@ -76,7 +76,9 @@ export default function BonusPopup({ isOpen, onClose }: BonusPopupProps) {
                   <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <CreditCard className="w-10 h-10 text-white" />
                   </div>
-                  <h2 className="text-2xl font-black mb-2">Connect Your Card</h2>
+                  <h2 className="text-2xl font-black mb-2">
+                    Connect Your Card
+                  </h2>
                   <p className="text-gray-600 font-semibold mb-4">
                     Link your card and claim your €20 bonus
                   </p>
